@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <title>Web Vizualisation</title>
+     <!-- Declare style sheet and js-->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <title>Home page</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="stylesheet1.css">
+</head>
+
+<body>
+<header>
+
+  <!-- navbar-->
+  <div class="bs-example">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <a href="index.html" class="navbar-brand">Latitude</a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse"
+           data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+              <div class="navbar-nav ml-auto">
+                  <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle"
+                       data-toggle="dropdown">Plots</a>
+                      <div class="dropdown-menu">
+                          <a href="humidity.html" class="dropdown-item">Humidity</a>
+                          <a href="cloudiness.html" class="dropdown-item">Cloudiness</a>
+                          <a href="windspeed.html" class="dropdown-item">Windspeed</a>
+                          <a href="max_temperature.html" class="dropdown-item">Max Temperature</a>
+                      </div>
+                  </div>
+                  <a href="Comparision.html" class="nav-item nav-link active">Comparison</a>
+                  <a href="Data.html" class="nav-item nav-link">Data</a>
+              </div>
+              
+          </div>
+      </nav>
+  </div>
+</header>  
+    <!-- Design containners and the rows and columns-->
+<main>  
+<div class="container" style="margin-top:100px">
+    <div class="row">
+        <div class="col-sm-7 mb-3 mb-md-0">
+          <div class="card">
+              <div class="content-box">
+            <div class="card-body">
+              <h5 class="card-title">Summary: Latitude Vs X</h5>
+              <hr>
+          
+              <img src="Images/equator_landing.png"  class="img-fluid img-paragraph float-left mr-2 img" height="300px" width="400px" alt="maxtemperature">
+              <p class="card-text text-justify">The purpose of this project was to visualize weather as you get closer to the equator.
+                  To accomplish this we pulled weather data for 500 cities around the world from Openweather API.<br>
+                  After assembling the data set we used Matplotlib to plot various aspects of weather vs latitude.
+                  Factors we looked at were: temperature, cloudiness, precipitation, wind speed and humidity.
+                  This site provides source data visualization and also analysis and correlations.
+                  </p> 
+          <br>
+          <br>
+          <p class="card-text text-justify">Seasons result from the tilt of the Earth's axis compared to the plane of its revolution
+              around the Sun. Throughout the year the northern and southern hemispheres are alternately
+              turned either toward or away from the sun depending on Earth's position in its orbit.
+              The hemisphere turned toward the sun receives more sunlight and is in summer,
+              while the other hemisphere receives less sun and is in winter.
+              </p>
+             </div>
+             </div>
+          </div>
+        </div>
+
+  <!-- Visualization box-->
+
+  <div class="col-sm-5 mb-3 mb-md-0">
+      <div class="card">
+      <div class="content-box">
+          <h5 class="card-title">Visualizations</h5>
+      <hr>
+      <a href="max_temperature.html">
+          <img class="img-nav-panel float-left" src="Images/Divya_Scatter_lat_maxtemp.png">
+      </a>
+      <a href="humidity.html">
+          <img class="img-nav-panel float-right" src="Images/Divya_Scatter_lat_humidity.png">
+      </a>
+      </a>
+      <a href="cloudiness.html">
+          <img class="img-nav-panel float-right" src="Images/Divya_Scatter_lat_cloudiness.png">
+      </a>
+      <a href="windspeed.html">
+          <img class="img-nav-panel float-left" src="Images/Divya_Scatter_lat_windspeed.png">
+    </div>
+    </div>    
+  </div>
+
+</div>
+</div>
+  <!-- Fotter section -->
+</main>
+<footer class="page-footer   special-color-dark pt-4">
+    <div class="container">      
+            <div style="background-color: #313331; border-top: 8px solid #22a3a3; color: white">
+    <!-- Copyright -->
+    <div class="font-small white footer-copyright text-center py-3">© 2017 Copyright:
+      <a href="https://www.bootcampspot.com/login"> UNC Bootcamp.com</a>
+    </div>
+</div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+</body>
+</html>
+
