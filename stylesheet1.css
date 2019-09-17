@@ -1,0 +1,118 @@
+html,
+header,
+body {
+  padding: 1;
+  margin: 0;
+  background: rgb(209, 218, 216);
+}
+/*--- navigation bar ---*/
+
+.navbar {
+  background:#eff1f1;
+}
+.nav-link{
+  color:#090c0b!important;
+  cursor: pointer !important;
+  background-color: rgb(234, 240, 240) !important;
+}
+.navbar-brand {
+  font-size: x-large;
+  font-weight: bold;
+  font-family: Verdana;
+  color: rgb(28, 53, 194)!important;
+  cursor: pointer;
+
+}
+.nav-item{
+  color:#090c0b;
+  cursor: pointer;
+  background-color: rgb(234, 240, 240);
+}
+
+.img {
+  padding: 10;
+  display: inline-block;
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
+  border: gray;
+}
+
+.mr-auto {
+    margin-right: right !important;
+}
+.nav-link {
+  margin-right: 1em !important;
+}
+.nav-link:hover {
+  color: #000;
+}
+.navbar-collapse {
+  justify-content: right;
+}
+
+.h2 {
+    font-size: large;
+    font-weight: bold;
+    color: rgb(14, 131, 131)
+}
+.card-title {
+  color: rgb(75, 185, 185)!important;
+  font-weight: bold;
+}
+.card-text{
+color: grey;
+display: inline;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.content-box {
+    background-color: var(--foreground-color);
+    margin: 30pt 5pt 10pt 5pt;
+    padding: 15pt;
+    overflow: auto;
+    /* height: max-content; */
+}
+
+.img-nav-panel {
+    width: 50%;
+    display: flexbox;
+    margin-bottom: 6pt;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0);
+}
+
+.dropdown-backdrop{
+  position: static;
+}
+.text-justify {
+  text-align: justify;
+}
