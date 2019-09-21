@@ -1,0 +1,32 @@
+Requirements:
+=====================
+Backend DB-- completed!! deployed in heroku
+---------------------------------------------
+
+Flask application - middleware: Divya and Kevin -- 20% complete
+--------------------------------------------------
+def scrapeData
+def readFromDB which will be used for plotting 1) maps and 2) tabular view.
+def homePage- render the home page
+
+def ConnectToDB - which will make db connections.
+def DumpDatainDB - first part done- where we dumped zip codes into tables.
+Seconda part is dumping scraped data - partially done.
+
+FrontEnd - Ramesh, Harsha, Joe
+------------------------------------------
+Call the flask api and render the pages.
+Ramesh- homePage
+Harsha - Map page.
+Joe- Tabular view.
+Use of chart.js
+
+
+Presentation - not started
+----------------------------------------
+1) Concept description or stoey telling- Joe
+2) Framework description - diagrams - Divya
+3) Plots and details - provide pictures - Harsh, Ramesh
+4) Challenges-- all
+5) others - all
+
