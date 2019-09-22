@@ -10,6 +10,8 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+     <!-- <script src="https://www.jsdelivr.com/package/npm/chart.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
     <link rel="stylesheet" href="stylesheet1.css">
 </head>
@@ -25,7 +27,8 @@
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
              <div class="navbar-nav ml-auto">
                  <a href="index.html" class="nav-item nav-link active">Go to the Home Page</a>
-                 <a href="table_display.html" class="nav-item nav-link active">Switch to Table View</a>
+                 <a href="map_display.html" class="nav-item nav-link active">Display Map</a>
+                 <a href="table_display.html" class="nav-item nav-link active">Display Table</a>
              </div>
              
          </div>    
@@ -56,13 +59,20 @@
                     </li>
                   </ul>
                 </div>
-                <!-- <button id="filter-btn" type="button" href="map_display.html" class="btn btn-default">Find Deals</button> -->
-                <a href="map_display.html" class="btn btn-primary">Find Deals</a>
+                <!-- <button id="filter-btn" type="button" href="map_display.html" class="btn btn-default">Show Stock Status</button> -->
+                <a href="doughnut.html" class="btn btn-primary">Display Stock Status</a>
+                <a href="test_chart.html" class="btn btn-primary">Scrape Data</a>
               </form>
             </div>
             </div>
           </div>
         </div>
+
+        <div class="col-sm-5 mb-3 mb-md-0">
+                              
+                <canvas id="myChart" width="400" height="400"></canvas>
+             
+
     </div>
 </div>
   <!-- Footer section -->
@@ -78,7 +88,10 @@
     <!-- Copyright -->
   
   </footer>
-  <!-- Footer -->
+  <!-- End of Footer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="doughnut.js"></script>
 
 </body>
 </html>
