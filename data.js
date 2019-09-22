@@ -1,7 +1,7 @@
 var data=[{
   'index': 0,
   'price-off': '76% off',
-  'quantabletity': 'In Stock',
+  'quantity': 'In Stock',
   'sku': '625412161',
   'store-address': '209 Lakeshore PkwyHomewood AL',
   'zip-code:': '35209'
