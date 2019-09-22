@@ -13,7 +13,7 @@ columns=Object.keys(tableData[0]);
 var tr_tag;
 
 //Set button for later user to click
-//var button = d3.select("#filter-btn");
+var button = d3.select("#filter-btn");
 
 //Code to just render all the table content. Outside of click.
 //------------------------------------------------------------------
@@ -37,7 +37,7 @@ tableData.forEach(function(name){
 
 //Code for button click and to filter the data based on user preference.
 //-----------------------------------------------------------------------------
-/* button.on("click", function() {
+button.on("click", function() {
   //Clear previous search results.
 tbody_tag.innerHTML=" ";
   //Get input element
@@ -49,7 +49,7 @@ var inputElement_discount = d3.select("#discount");
   // Get the value property of the input element
 var inputValue_discount = inputElement_discount.property("value");
 
-var inputElement_stock = d3.select("#stock");
+var inputElement_stock = d3.select("#quantity");
   // Get the value property of the input element
 var inputValue_stock = inputElement_stock.property("value");
 
@@ -62,18 +62,19 @@ tableData.forEach(function(name){
   
   columns.forEach(function(column){    
     
-    var denter= new Date(inputValue_sku);
+    //var denter= new Date(inputValue_sku);
     var dtable= new Date(name['datetime']);
 
     //Convert city and shape to all lower case so that it will match the dataset
-    var city_lowercase= inputValue_city.toLowerCase();
-    var shape_tolowercase=inputValue_shape.toLowerCase();
+    //var city_lowercase= inputValue_city.toLowerCase();
+    //var shape_tolowercase=inputValue_shape.toLowerCase();
 
         
     //if statement to compare the dates and city and shape
-    if((inputValue_datetime == "" || denter.getTime()===dtable.getTime()) && 
-        (city_lowercase == "" || city_lowercase == name['city']) && 
-        (shape_tolowercase == "" || shape_tolowercase == name['shape']))
+    if((inputValue_sku == "" || inputValue_sku===name['sku']) && 
+        (inputValue_discount == "" || inputValue_discount === name['price-off']) && 
+        (inputValue_stock == "" || inputValue_stock === name['quantity']) &&
+        (inputValue_zip== "") || inputValue_zip ===name['zip-code:'])
 {
     //console.log(column)
      var td_tag=document.createElement('td');
@@ -92,4 +93,4 @@ tableData.forEach(function(name){
   tbody_tag.appendChild(tr_tag);
 
 });
-}); */
+}); 
