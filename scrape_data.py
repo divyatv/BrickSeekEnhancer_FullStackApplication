@@ -18,7 +18,7 @@ import pandas as pd
 def scrape_endpoint(sku):
     # Get zip codes from the city_zip_table
     ## select zip from city_zip_data where it matches the SKU provided- change later
-    sql='SELECT zip FROM city_zip_data'
+    sql='SELECT zip FROM city_zip_data LIMIT 10'
     zip_code=connectDB.connect_db(sql)
 
     # Loop through all the zip codes and then build the url 
@@ -81,25 +81,26 @@ def write_to_db(zip_codes):
     # drop city_zip_data if it exist already
     rds_connection_string = "bedlgjelgbrcba:62edbf5e39edf1ea129a38a5766d7354579374a6db487103a421c76fd47d78c3@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dd4i4baf4sjibo"
     engine = create_engine(f'postgresql://{rds_connection_string}')
-    # engine.table_names()
-    # market_scraped_data = 'market_scraped_data'
-    # connection = engine.raw_connection()
-    # cursor = connection.cursor()
-    # command = "DROP TABLE IF EXISTS {};".format(market_scraped_data)
-    # cursor.execute(command)
-    # connection.commit()
-    # cursor.close()
-        
+    engine.table_names()
+    market_scraped_data = 'market_scraped_data'
+    connection = engine.raw_connection()
+    cursor = connection.cursor()
+    command = "DROP TABLE IF EXISTS {};".format(market_scraped_data)
+    cursor.execute(command)
+    connection.commit()
+    cursor.close()
+       
     pages_data_df = pd.DataFrame.from_dict(page_dict_list)
+    pages_data_df=pages_data_df.dropna()
     pages_data_df.head(10)
     #df1.to_sql('users', con=engine, if_exists='append')
-    pages_data_df.to_sql('market_scraped_data', con=engine, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
+    pages_data_df.to_sql('market_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
     #pd.read_sql_query('select * from market_scraped_data', con=engine).head()
     # print(page_dict_list)    
 
 
 if __name__ == '__main__' :
-    sku = 600104275
+    sku = 940939534
     
     zip_codes=scrape_endpoint(sku)
     #print(zip_codes)
@@ -109,10 +110,10 @@ if __name__ == '__main__' :
     #     s.remove('html'+ item +'.html')
 
 ##### Remove the html files that were generated.
-    # for item in zip_codes:
-    #     file = 'html' + item + '.html'
-    #     if os.path.exists(file):
-    #         os.remove(file)
+    for item in zip_codes:
+        file = 'html' + item + '.html'
+        if os.path.exists(file):
+            os.remove(file)
 
            
 

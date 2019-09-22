@@ -21,10 +21,12 @@ var myChart = new Chart(ctx, {
         'rgba(80, 193, 193, 0.2)'
       ],
       borderWidth: 1
+	
     }]
   },
   options: {
    	cutoutPercentage: 60,
+	
     responsive: false,
 
   }
