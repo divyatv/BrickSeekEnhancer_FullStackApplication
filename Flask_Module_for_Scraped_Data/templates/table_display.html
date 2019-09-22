@@ -11,7 +11,7 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="stylesheet1.css">
+      <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
  <div class="bs-example">
       <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark">
           
-		  <nav class="navbar navbar-light bg-light btn btn-primary">
+		  <nav class="btn btn-primary">
   <a class="navbar-brand" href="#">
     <!-- <img src="shoppingowl.jpg" width="130" height="120" alt="">
   </a> -->
@@ -28,9 +28,10 @@
 
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
              <div class="navbar-nav ml-auto">
-                 <a href="index.html" class="nav-item nav-link active btn btn-primary">Go to the Home Page</a>
+                 <a href="http://localhost:5000/" class="nav-item nav-link active btn btn-primary">Go to the Home Page</a>
                  <a href="map_display.html" class="nav-item nav-link active btn btn-primary ">Display Map</a>
-                 <a href="table_display.html" class="nav-item nav-link active btn btn-primary">Display Table</a>
+                 <a href="http://localhost:5000/table" class="nav-item nav-link active btn btn-primary">Display Table</a>
+                 <a href="Plots.html" class="nav-item nav-link active btn btn-primary">Plots</a>
              </div>
              
          </div>    
@@ -120,8 +121,8 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-  <script src="data.js"></script>
-  <script src="table.js"></script>
+   <script src="{{ url_for('static', filename='data.js') }}"></script>
+  <script src="{{ url_for('static', filename='table_logic.js') }}"></script>
  
   
 </body>

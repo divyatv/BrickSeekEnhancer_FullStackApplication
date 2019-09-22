@@ -1,7 +1,7 @@
-var tabledata=[{
+var data=[{
   'index': 0,
   'price-off': '76% off',
-  'quantabletity': 'In Stock',
+  'quantity': 'In Stock',
   'sku': '625412161',
   'store-address': '209 Lakeshore PkwyHomewood AL',
   'zip-code:': '35209'
@@ -1048,81 +1048,4 @@ var tabledata=[{
   'sku': '625412161',
   'store-address': '2901 Highway 412 ESiloam Springs AR',
   'zip-code:': '72761'
-}, {
-  'index': 0,
-  'price-off': '76% off',
-  'quantity': 'In Stock',
-  'sku': None,
-  'store-address': '209 Lakeshore PkwyHomewood AL 35209 ',
-  'zip-code:': None
-}, {
-  'index': 1,
-  'price-off': '76% off',
-  'quantity': 'In Stock',
-  'sku': None,
-  'store-address': '9248 Parkway EBirmingham AL 35206 ',
-  'zip-code:': None
-}, {
-  'index': 2,
-  'price-off': '76% off',
-  'quantity': 'In Stock',
-  'sku': None,
-  'store-address': '890 Odum RdGardendale AL 35071 ',
-  'zip-code:': None
-}, {
-  'index': 3,
-  'price-off': '76% off',
-  'quantity': 'In Stock',
-  'sku': None,
-  'store-address': '5335 Highway 280Birmingham AL 35242 ',
-  'zip-code:': None
-}, {
-  'index': 4,
-  'price-off': '76% off',
-  'quantity': 'Limited Stock',
-  'sku': None,
-  'store-address': '2780 John Hawkins PkwyHoover AL 35244 ',
-  'zip-code:': None
-}, {
-  'index': 5,
-  'price-off': '76% off',
-  'quantity': 'In Stock',
-  'sku': None,
-  'store-address': '8551 Whitfield AveLeeds AL 35094 ',
-  'zip-code:': None
-}, {
-  'index': 6,
-  'price-off': '76% off',
-  'quantity': 'Limited Stock',
-  'sku': None,
-  'store-address': '630 Colonial Promenade PkwyAlabaster AL 35007 ',
-  'zip-code:': None
-}, {
-  'index': 7,
-  'price-off': '76% off',
-  'quantity': 'Out of Stock',
-  'sku': None,
-  'store-address': '2181 Pelham PkwyPelham AL 35124 ',
-  'zip-code:': None
-}, {
-  'index': 8,
-  'price-off': '76% off',
-  'quantity': 'Out of Stock',
-  'sku': None,
-  'store-address': '5919 Trussville Crossings PkwyBirmingham AL 35235 ',
-  'zip-code:': None
-}, {
-  'index': 9,
-  'price-off': '53% off',
-  'quantity': 'Out of Stock',
-  'sku': None,
-  'store-address': '16077 Highway 280Chelsea AL 35043 ',
-  'zip-code:': None
-}, {
-  'index': 10,
-  'price-off': '6% off',
-  'quantity': 'Out of Stock',
-  'sku': None,
-  'store-address': '2473 Hackworth RdBirmingham AL 35214 ',
-  'zip-code:': None
 }];

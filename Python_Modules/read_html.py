@@ -49,8 +49,8 @@ def calculate_dict(path):
         sku_search = re.search('\nSKU:(.*)', s)
         sku=sku_search.group(1)
 
-        pages_dict = [ {"sku": sku, "zip-code:":  address_ex[i].split()[-1], "price-off": discount[i], \
-                            "store-address" : ' '.join(address_ex[i].split()[:-1]), \
+        pages_dict = [ {"sku": sku, "zipcode":  address_ex[i].split()[-1], "priceoff": discount[i], \
+                            "storeaddress" : ' '.join(address_ex[i].split()[:-1]), \
                             "quantity": quantity[i] } for i in range(len(discount)) ]
             #for page in pages_dict:
             #    print(page) 
@@ -81,7 +81,7 @@ for i in page_dict_list:
 #pages_data_df=pages_data_df.dropna()
     pages_data_df.head(10)
     #df1.to_sql('users', con=engine, if_exists='append')
-    pages_data_df.to_sql('market_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
+    pages_data_df.to_sql(scraped_data_birckseek', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
     #pd.read_sql_query('select * from market_scraped_data', con=engine).head()
     # print(page_dict_list)    
 

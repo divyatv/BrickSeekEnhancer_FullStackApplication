@@ -13,8 +13,8 @@
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
      <!-- <script src="https://www.jsdelivr.com/package/npm/chart.js"></script> -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	  <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
 
-    <link rel="stylesheet" href="stylesheet1.css">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
   <div class="bs-example">
       <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark">
           
-		  <nav class="navbar navbar-light bg-light btn btn-primary">
+		  <nav class="btn btn-primary">
   <a class="navbar-brand" href="#">
     <!-- <img src="shoppingowl.jpg" width="130" height="120" alt="">
   </a> -->
@@ -33,9 +33,10 @@
 
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
              <div class="navbar-nav ml-auto">
-                 <a href="index.html" class="nav-item nav-link active btn btn-primary">Go to the Home Page</a>
+                 <a href="http://localhost:5000/" class="nav-item nav-link active btn btn-primary">Go to the Home Page</a>
                  <a href="map_display.html" class="nav-item nav-link active btn btn-primary ">Display Map</a>
-                 <a href="table_display.html" class="nav-item nav-link active btn btn-primary">Display Table</a>
+                 <a href="http://localhost:5000/table" class="nav-item nav-link active btn btn-primary">Display Table</a>
+                 <a href="Plots.html" class="nav-item nav-link active btn btn-primary">Plots</a>
              </div>
              
          </div>    
@@ -88,8 +89,8 @@
     <div class="container">      
             <div style="background-color: #313331; border-top: 8px solid #22a3a3; color: white">
     <!-- Copyright -->
-    <div class="font-small white footer-copyright text-center py-3">© 2017 Copyright:
-      <a href="https://www.bootcampspot.com/login"> UNC Bootcamp.com</a>
+    <div class="font-small white footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="https://www.bootcampspot.com/login">DataOwl UNC Bootcamp.com</a>
     </div>
 </div>
     <!-- Copyright -->
@@ -98,7 +99,8 @@
   <!-- End of Footer -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="app.js"></script>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
 
 </body>
 </html>

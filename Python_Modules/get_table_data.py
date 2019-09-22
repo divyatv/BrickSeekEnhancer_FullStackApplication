@@ -10,9 +10,11 @@ import pandas as pd
 sql='SELECT * FROM market_scraped_data'
 entire_table=connectDB.connect_db(sql)
 
-df = pd.DataFrame(entire_table, columns =['price-off', 'quantity', 'sku', 'store-address', 'zip-code:']) 
+df = pd.DataFrame(entire_table, columns =['price_off', 'quantity', 'sku', 'store_address', 'zip_code']) 
 data_dict = df.T.to_dict().values()
 
-with  open('data.js', 'w') as file:
-    file.write(str(data_dict))
+df.to_csv(r'database_dmp.csv')
+
+# with  open('data.js', 'w') as file:
+#     file.write(str(data_dict))
 #print(data_dict)

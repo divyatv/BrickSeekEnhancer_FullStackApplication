@@ -8,10 +8,11 @@ import numpy as np
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
-app = Flask(__name__)
+#app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 @app.route("/")
-def index():
+def home():
     """Return the homepage."""
     return render_template("homepage.html")
 
@@ -20,8 +21,9 @@ def render_dict_maps():
     """Return the dictionary for harsha"""
 
 @app.route("/table")
-def render_dict():
+def table():
     """Return entire database entries fot a particular SKU"""  
+    return render_template("table_display.html")
 
 if __name__ == "__main__":
     app.run()

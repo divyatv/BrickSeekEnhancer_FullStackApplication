@@ -8,25 +8,25 @@ body {
 /*--- navigation bar ---*/
 
 .navbar {
-  background:#eff1f1;
+  background:#a88a63;
 }
 .nav-link{
   color:#090c0b!important;
   cursor: pointer !important;
-  background-color: rgb(234, 240, 240) !important;
+  background-color: rgb(211, 141, 60) !important;
 }
 .navbar-brand {
   font-size: x-large;
   font-weight: bold;
   font-family: Verdana;
-  color: rgb(28, 53, 194)!important;
+  color: rgb(102, 60, 6)!important;
   cursor: pointer;
 
 }
 .nav-item{
   color:#090c0b;
   cursor: pointer;
-  background-color: rgb(234, 240, 240);
+  background-color: rgb(155, 103, 6);
 }
 
 .img {
@@ -57,7 +57,7 @@ body {
     color: rgb(14, 131, 131)
 }
 .card-title {
-  color: rgb(75, 185, 185)!important;
+  color: rgb(15, 35, 124)!important;
   font-weight: bold;
 }
 .card-text{
@@ -108,6 +108,11 @@ display: inline;
     border-width: 2px;
     border-style: solid;
     border-color: rgba(0,0,0,0);
+}
+.p {
+  font-size: large;
+    font-weight: bold;
+    color: rgb(4, 26, 51);
 }
 
 .dropdown-backdrop{
