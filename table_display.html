@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+    <title>Table Display</title>
+     <!-- Declare style sheet and js-->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <title>Home page</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="stylesheet1.css">
+</head>
+
+<body>
+<header>
+
+  <!-- navbar-->
+  <div class="bs-example">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <h1>DataOwl</h1>
+
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+             <div class="navbar-nav ml-auto">
+                 <a href="index.html" class="nav-item nav-link active">Go to the Home Page</a>
+                 <a href="map_display.html" class="nav-item nav-link active">Switch to Map View</a>
+             </div>
+             
+         </div>    
+      </nav>
+  </div>
+</header>  
+    <!-- Design containers and the rows and columns-->
+<main>  
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 style="color:blue; font-size:16px;">Product details from Database</h1>
+            <br><br />
+           <div id="table-area" class="">
+            <table id="ufo-table" class="table table-striped">
+              <thead>
+			
+                <tr>
+                  <th class="table-head">Index</th>
+                  <th class="table-head">Price-Off</th>
+                  <th class="table-head">Quantity</th>
+                  <th class="table-head">SKU</th>
+                  <th class="table-head">Store-Address</th>
+                  <th class="table-head">Zip-Code</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+               
+              </tbody>
+            </table>
+          </div>
+    
+        </div>
+      </div>
+  <!-- Footer section -->
+</main>
+<footer class="page-footer   special-color-dark pt-4">
+    <div class="container">      
+            <div style="background-color: #313331; border-top: 8px solid #22a3a3; color: white">
+    <!-- Copyright -->
+    <div class="font-small white footer-copyright text-center py-3">© 2017 Copyright:
+      <a href="https://www.bootcampspot.com/login"> UNC Bootcamp.com</a>
+    </div>
+</div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="data.js"></script>
+  <script src="table.js"></script>
+ 
+  
+</body>
+</html>
