@@ -1,5 +1,5 @@
 // from data.js get the data.
-var tableData = data;
+var tableData = data_dict;
 console.log(tableData);
 
 // Getting tbody tag
@@ -94,3 +94,15 @@ tableData.forEach(function(name){
 
 });
 }); 
+
+function init() {
+  // Grab a reference to the dropdown select element
+  //var selector = d3.select("#selDataset");
+
+  // Use the list of sample names to populate the select options
+
+    buildMetadata(firstSample);
+  });
+}
+
+
