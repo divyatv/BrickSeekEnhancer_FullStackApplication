@@ -60,7 +60,7 @@ page_dict_list = []
     # for item in  [scrape_html_pages(item) for  item in zip_codes]:
     #     page_dict_list = page_dict_list + item
     
-sql='SELECT zip FROM city_zip_data LIMIT 10'
+sql='SELECT zip FROM city_zip_data'
 zip_code=connect_db(sql)
 zip_codes=[]
 
@@ -81,7 +81,7 @@ for i in page_dict_list:
 #pages_data_df=pages_data_df.dropna()
     pages_data_df.head(10)
     #df1.to_sql('users', con=engine, if_exists='append')
-    pages_data_df.to_sql(scraped_data_birckseek', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
+    pages_data_df.to_sql('market_data_scraped', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
     #pd.read_sql_query('select * from market_scraped_data', con=engine).head()
     # print(page_dict_list)    
 

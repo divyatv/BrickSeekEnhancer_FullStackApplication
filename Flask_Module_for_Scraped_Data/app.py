@@ -21,11 +21,11 @@ app = Flask(__name__, static_url_path='/static')
 #################################################
 # Database Setup
 #################################################
-sql='SELECT * FROM market_scraped_data'
-entire_table=connectDB.connect_db(sql)
+# sql='SELECT * FROM market_scraped_data'
+# entire_table=connectDB.connect_db(sql)
 
-df = pd.DataFrame(entire_table, columns =['price_off', 'quantity', 'sku', 'store_address', 'zip_code']) 
-data_dict = df.T.to_dict().values()
+# df = pd.DataFrame(entire_table, columns =['priceoff', 'quantity', 'sku', 'storeaddress', 'zipcode']) 
+# data_dict = df.T.to_dict().values()
 
 
 @app.route("/")
@@ -43,12 +43,12 @@ def table():
     sql='SELECT * FROM market_scraped_data'
     entire_table=connectDB.connect_db(sql)
 
-    df = pd.DataFrame(entire_table, columns =['price_off', 'quantity', 'sku', 'store_address', 'zip_code']) 
+    df = pd.DataFrame(entire_table, columns =['priceoff', 'quantity', 'sku', 'storeaddress', 'zipcode']) 
     data_dict = df.T.to_dict().values()
 
     # Return a list of df
     #return jsonify(data_dict) 
-    return render_template("table_display.html", data=jsonify(list(data_dict)))
+    return render_template("table_display.html", data_dict=jsonify(list(data_dict)))
 
 @app.route("/plots")
 def plots():

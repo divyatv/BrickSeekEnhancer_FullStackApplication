@@ -12,8 +12,9 @@
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
       <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
+      <!-- <script src="../static/stylesheet1.css"></script> -->
       <script>
-        var data = '{{ data_dict }}';
+        var data = '{{data}}';
       </script>
 </head>
 
@@ -124,7 +125,9 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-   <script src="{{ url_for('static', filename='data.js') }}"></script>
+  <!-- <script src="../static/data.js"></script>
+  <script src="../static/table_logic.js"></script> -->
+   <script src="{{ url_for('static', filename='data.js')}}"></script>
   <script src="{{ url_for('static', filename='table_logic.js') }}"></script>
  
   
