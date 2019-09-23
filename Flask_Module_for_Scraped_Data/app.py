@@ -57,6 +57,7 @@ def plots():
     entire_table=connectDB.connect_db(sql)
 
     df = pd.DataFrame(entire_table, columns =['price_off', 'quantity', 'sku', 'store_address', 'zip_code']) 
+    df =df.reset_index(drop=True, inplace=True)
     data_dict = df.T.to_dict().values()
 
     # Return a list of df
