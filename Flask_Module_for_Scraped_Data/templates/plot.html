@@ -1,6 +1,11 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Deal Finder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+       <title>Deal Finder</title>
      <!-- Declare style sheet and js-->
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,13 +15,13 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-     <!-- <script src="https://www.jsdelivr.com/package/npm/chart.js"></script> -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-	  <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
-
 </head>
-
-<body>
+<style>
+    .container {
+        width: 80%;
+        height: 80%;
+    }
+</style>
 <header>
 
   <!-- navbar-->
@@ -42,50 +47,20 @@
       </nav>
   </div>
 </header>  
-<script>
-window.onload = function() {
-
-var dataPoints = [];
-
-var options =  {
-	animationEnabled: true,
-	theme: "light2",
-	title: {
-		text: "Daily Sales Data"
-	},
-	axisX: {
-		valueFormatString: "DD MMM YYYY",
-	},
-	axisY: {
-		title: "USD",
-		titleFontSize: 24,
-		includeZero: false
-	},
-	data: [{
-		type: "spline", 
-		yValueFormatString: "$#,###.##",
-		dataPoints: dataPoints
-	}]
-};
-
-function addData(data) {
-	for (var i = 0; i < data.length; i++) {
-		dataPoints.push({
-			x: new Date(data[i].date),
-			y: data[i].units
-		});
-	}
-	$("#chartContainer").CanvasJSChart(options);
-
-}
-$.getJSON("https://canvasjs.com/data/gallery/jquery/daily-sales-data.json", addData);
-
-}
-</script>
-</head>
 <body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+       <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+    <label for="date">Enter SKU</label>
+    <input class="form-control" id="sku" type="text" placeholder="625412161">
+    
+  <button id="renderBtn" type="button" class="btn btn-primary">Filter Table</button>    
+</div>            
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../static/myChart.js"></script>
 </body>
 </html>
