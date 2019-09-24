@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <title>Deal Finder</title>
+     <!-- Declare style sheet and js-->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <title>Home page</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+     <!-- <script src="https://www.jsdelivr.com/package/npm/chart.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	  <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
+
+</head>
+
+<body>
+<header>
+
+  <!-- navbar-->
+  <div class="bs-example">
+      <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark">
+          
+		  <nav class="btn btn-primary">
+  <a class="navbar-brand" href="http://localhost:5000/">
+    <!-- <img src="shoppingowl.jpg" width="130" height="120" alt="">
+  </a> -->
+  <h1>DataOwl</h1>
+</nav>
+
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+             <div class="navbar-nav ml-auto">
+                 <!-- <a href="http://localhost:5000/" class="nav-item nav-link active btn btn-primary">Go to the Home Page</a> -->
+                 <a href="map_display.html" class="nav-item nav-link active btn btn-primary ">Display Map</a>
+                 <a href="http://localhost:5000/table" class="nav-item nav-link active btn btn-primary">Display Table</a>
+                 <a href="http://localhost:5000/plots" class="nav-item nav-link active btn btn-primary">Plots</a>
+             </div>
+             
+         </div>    
+      </nav>
+  </div>
+</header>  
+<script>
+window.onload = function() {
+
+var dataPoints = [];
+
+var options =  {
+	animationEnabled: true,
+	theme: "light2",
+	title: {
+		text: "Daily Sales Data"
+	},
+	axisX: {
+		valueFormatString: "DD MMM YYYY",
+	},
+	axisY: {
+		title: "USD",
+		titleFontSize: 24,
+		includeZero: false
+	},
+	data: [{
+		type: "spline", 
+		yValueFormatString: "$#,###.##",
+		dataPoints: dataPoints
+	}]
+};
+
+function addData(data) {
+	for (var i = 0; i < data.length; i++) {
+		dataPoints.push({
+			x: new Date(data[i].date),
+			y: data[i].units
+		});
+	}
+	$("#chartContainer").CanvasJSChart(options);
+
+}
+$.getJSON("https://canvasjs.com/data/gallery/jquery/daily-sales-data.json", addData);
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</body>
+</html>

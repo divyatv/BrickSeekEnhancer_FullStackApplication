@@ -68,7 +68,7 @@ for item in zip_code:
     zip_codes.append(re.sub("\'|\,|\(|\)", "", str(item)))
 
 for every in zip_codes:
-    page_dict_list.append(calculate_dict('../html_files_night/*.html'))
+    page_dict_list.append(calculate_dict('*.html'))
 
 rds_connection_string = "bedlgjelgbrcba:62edbf5e39edf1ea129a38a5766d7354579374a6db487103a421c76fd47d78c3@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dd4i4baf4sjibo"
 engine = create_engine(f'postgresql://{rds_connection_string}') 
@@ -81,7 +81,7 @@ for i in page_dict_list:
 #pages_data_df=pages_data_df.dropna()
     pages_data_df.head(10)
     #df1.to_sql('users', con=engine, if_exists='append')
-    pages_data_df.to_sql('market_data_scraped', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
+    pages_data_df.to_sql('market_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
     #pd.read_sql_query('select * from market_scraped_data', con=engine).head()
     # print(page_dict_list)    
 

@@ -44,11 +44,16 @@ def table():
     entire_table=connectDB.connect_db(sql)
 
     df = pd.DataFrame(entire_table, columns =['priceoff', 'quantity', 'sku', 'storeaddress', 'zipcode']) 
+    #df = df.reset_index(drop=True, inplace=True)
     data_dict = df.T.to_dict().values()
+    js_var=str(data_dict).replace("(", "=")
+    js_var_fixed=js_var.replace(")", ";")
 
+    with open('static/dict_values.js', 'w') as file:
+        file.write(js_var_fixed)
     # Return a list of df
     #return jsonify(data_dict) 
-    return render_template("table_display.html", data_dict=jsonify(list(data_dict)))
+    return render_template("table_display.html")
 
 @app.route("/plots")
 def plots():
@@ -56,13 +61,16 @@ def plots():
     sql='SELECT * FROM market_scraped_data'
     entire_table=connectDB.connect_db(sql)
 
-    df = pd.DataFrame(entire_table, columns =['price_off', 'quantity', 'sku', 'store_address', 'zip_code']) 
-    df =df.reset_index(drop=True, inplace=True)
+    df = pd.DataFrame(entire_table, columns =['priceoff', 'quantity', 'sku', 'storeaddress', 'zipcode']) 
+    #df =df.reset_index(drop=True, inplace=True)
     data_dict = df.T.to_dict().values()
+
+   
+    return jsonify(data_dict)
 
     # Return a list of df
     #return jsonify(data_dict) 
-    return render_template("table_display.html", data=jsonify(list(data_dict)))    
+    return jsonify(list(data_dict))   
 
 if __name__ == "__main__":
     app.run()

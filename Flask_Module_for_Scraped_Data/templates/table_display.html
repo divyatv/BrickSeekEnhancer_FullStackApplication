@@ -10,13 +10,14 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-      <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
-      <!-- <script src="../static/stylesheet1.css"></script> -->
+     <!-- <script src="https://www.jsdelivr.com/package/npm/chart.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	  <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
       <script>
-        var data = '{{data}}';
+        var dict_values= '{{dict_values}}';
       </script>
-</head>
+      
+    </head>
 
 <body>
 <header>
@@ -104,6 +105,7 @@
                
               </tbody>
             </table>
+          
           </div>
     
         </div>
@@ -122,12 +124,10 @@
   
   </footer>
   <!-- Footer -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-  <!-- <script src="../static/data.js"></script>
-  <script src="../static/table_logic.js"></script> -->
-   <script src="{{ url_for('static', filename='data.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+   <script src="../static/dict_values.js"></script>
+  <!-- <script src="../static/table_logic.js"></script> -->
+   <!-- <script src="{{ url_for('static', filename='data.js')}}"></script> -->
   <script src="{{ url_for('static', filename='table_logic.js') }}"></script>
  
   

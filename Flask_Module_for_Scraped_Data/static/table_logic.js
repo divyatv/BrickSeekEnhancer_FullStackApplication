@@ -1,5 +1,5 @@
 // from data.js get the data.
-var tableData = data;
+var tableData = dict_values;
 console.log(tableData);
 
 // Getting tbody tag
