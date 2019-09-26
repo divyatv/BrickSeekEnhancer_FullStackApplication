@@ -1,11 +1,16 @@
+var tableData = donught_values;
+
+var label=label_values;
+var data=data_values;
+
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ['Divya', 'Harsha', 'Joe', 'Kevin', 'Ramesh'],
+    labels:label,
     datasets: [{
       label: '#Stock Status',
-      data: [20, 20, 20, 20, 20],
+      data: data,
       backgroundColor: [
         'rgba(182, 15, 15, 1)',
         'rgba(194, 98, 1, 1)',

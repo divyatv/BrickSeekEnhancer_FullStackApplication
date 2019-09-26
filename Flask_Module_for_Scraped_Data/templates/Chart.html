@@ -52,20 +52,14 @@
 <body>
 
   <canvas id="myChart" width="600" height="400"></canvas>
-  <p id="caption">The chart is displaying a simple line chart.</p>
-  
-    <label for="date">Enter SKU</label>
-    <input class="form-control" id="sku" type="text" placeholder="625412161">
-    
-  <button id="renderBtn" type="button" class="btn btn-primary">Filter Table</button>    
-</div>            
-
-
+  <p id="caption">Availability</p>
+        
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- <script src="../static/Chart.js"></script> -->
 <script>
-    Chart.defaults.global.responsive = false;
+    Chart.defaults.global.responsive = true;
      
      // define the chart data
      var chartData = {
@@ -105,8 +99,14 @@
      var myChart = new Chart(ctx, {
        type: 'line',
        data: chartData,
+       options: {
+        title: {
+            display: true,
+            text: 'Custom Chart Title'
+        }
+    }
      });
-    
+ 
          </script>
 </body>
 </html>

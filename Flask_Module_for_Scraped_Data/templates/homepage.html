@@ -13,7 +13,11 @@
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
      <!-- <script src="https://www.jsdelivr.com/package/npm/chart.js"></script> -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-	  <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
+    <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='donught_values.js') }}"></script> -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    
 
 </head>
 
@@ -28,7 +32,7 @@
   <a class="navbar-brand" href="http://localhost:5000/">
     <!-- <img src="shoppingowl.jpg" width="130" height="120" alt="">
   </a> -->
-  <h1>DataOwl</h1>
+  <h1>OneView</h1>
 </nav>
 
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
@@ -62,8 +66,8 @@
                       <input class="form-control" id="sku" type="text" placeholder="625412161">
                     </li>
                     <li class="filter list-group-item">
-                      <label for="city">Enter your Zip Code</label>
-                      <input class="form-control" id="zip code" type="text" placeholder="27601">
+                      <label for="city">Enter Store</label>
+                      <input class="form-control" id="zip code" type="text" placeholder="Walmart">
                     </li>
                   </ul>
                 </div>
@@ -78,10 +82,17 @@
 
         <div class="col-sm-5 mb-3 mb-md-0">
                               
-                <canvas id="myChart" width="400" height="400"></canvas>
+          
+                <div class="chart" id="bargraph">
+                    <script>
+                        var graphs = {{plot | safe}};
+                        Plotly.plot('bargraph',graphs,{});
+                    </script>
+                </div>
              
 
     </div>
+ 
 </div>
   <!-- Footer section -->
 </main>
@@ -99,8 +110,8 @@
   <!-- End of Footer -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  
+  <!-- <script src="{{ url_for('static', filename='app.js') }}"></script> -->
 
 </body>
 </html>

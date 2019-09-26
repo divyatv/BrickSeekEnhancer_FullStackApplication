@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, render_template
 # from flask_sqlalchemy import SQLAlchemy
+import plotly
+import plotly.graph_objs as go
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -33,7 +35,24 @@ app = Flask(__name__, static_url_path='/static')
 @app.route("/")
 def home():
     """Return the homepage."""
-    return render_template("homepage.html")
+    sql="SELECT quantity, COUNT(*) FROM market_scraped_data where sku=' 600104275 ' GROUP BY quantity"
+    entire_table=connectDB.connect_db(sql)
+    df = pd.DataFrame(entire_table, columns =['quantity', 'count']) 
+    # data_list = df.values.tolist()
+
+    data = [
+        go.Bar(
+            x=df['quantity'], # assign x as the dataframe column 'x'
+            y=df['count']
+        )
+    ]
+       
+    # with open('static/data_list_values.js', 'w') as file:
+    #     file.write(str(data_list))
+
+    graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return render_template("homepage.html", plot=graphJSON)
 
 @app.route("/maps")
 def render_dict_maps():
@@ -57,17 +76,18 @@ def table():
     #return jsonify(data_dict) 
     return render_template("table_display.html")
 
-@app.route("/plots")
-def plots():
+@app.route("/plots/<sku>")
+def plots(sku):
     """Return entire database entries fot a particular SKU""" 
-    t = (' 201326711 ',)
+    sku = (' sku ',)
+  
 
     rds_connection_string = "bedlgjelgbrcba:62edbf5e39edf1ea129a38a5766d7354579374a6db487103a421c76fd47d78c3@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dd4i4baf4sjibo"
     engine = create_engine(f'postgresql://{rds_connection_string}')
     #engine.table_names()
     connection = engine.raw_connection()
     cursor = connection.cursor()
-    entire_table=engine.execute('SELECT priceoff, zipcode, quantity FROM market_scraped_data WHERE sku= %s', t)
+    entire_table=engine.execute('SELECT priceoff, zipcode, quantity FROM market_scraped_data WHERE sku= %s', sku)
     cursor.close()
 
     df = pd.DataFrame(entire_table, columns =['priceoff', 'zipcode', 'quantity'])
