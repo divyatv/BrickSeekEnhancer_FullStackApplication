@@ -1,1 +1,0 @@
-dict_values=[{'quantity': 'Limited Stock', 'count': 319}, {'quantity': 'Out of Stock', 'count': 1595}, {'quantity': 'In Stock', 'count': 2552}];
