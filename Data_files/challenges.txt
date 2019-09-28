@@ -1,0 +1,13 @@
+curl --data "sku=201326711&zip=27713" https://brickseek.com/target-inventory-checker? -o divya.html
+
+884116298410 
+
+
+
+https://brickseek.com/walmart-inventory-checker?sku=329264833
+https://brickseek.com/target-inventory-checker?sku=080-02-1714
+
+Straight Talk Prepaid Apple iPhone 6 32GB, Space Gray
+
+Initial city and population data
+Initial load of data in cloud DB

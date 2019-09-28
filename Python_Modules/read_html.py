@@ -1,3 +1,8 @@
+#### Load web scraped data into database.
+#### curl command would get the response but after some calls brickseek blocked us.
+#### To overcome that hurdle we wrote the reposnes into html files and then scraped the 
+#### data we needed. The data was then cleaned and loaded into the database asynchronously.
+
 import sqlalchemy
 from bs4 import BeautifulSoup
 from sqlalchemy import Column, Integer, String, Float
@@ -11,10 +16,9 @@ import codecs
 import pandas as pd
 
 def connect_db(sql):
-
-            rds_connection_string = "bedlgjelgbrcba:62edbf5e39edf1ea129a38a5766d7354579374a6db487103a421c76fd47d78c3@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dd4i4baf4sjibo"
-            engine = create_engine(f'postgresql://{rds_connection_string}')
-            return engine.execute(sql).fetchall()
+    rds_connection_string = "postgres://xsexllfzorcrvb:c19fdb9e7f8b1d787fd0aa79c53c274bd6b25e57c89b6d0981f8b6ad293a5c80@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dbvr413t8b1dv6"
+    engine = create_engine(f'postgresql://{rds_connection_string}')
+    return engine.execute(sql).fetchall()
 
 def read_from_html(htmlfile_name):        
     #filepath = os.path.join(htmlfile_name)
@@ -46,10 +50,10 @@ def calculate_dict(path):
             #print("quantity", quantity)
         s=soup.find_all('div', class_='item-overview__meta-item')[1].text
         import re
-        sku_search = re.search('\nSKU:(.*)', s)
+        sku_search = re.search('\nUPC:(.*)', s)
         sku=sku_search.group(1)
 
-        pages_dict = [ {"sku": sku, "zipcode":  address_ex[i].split()[-1], "priceoff": discount[i], \
+        pages_dict = [ {"DCPI": sku, "zipcode":  address_ex[i].split()[-1], "priceoff": discount[i], \
                             "storeaddress" : ' '.join(address_ex[i].split()[:-1]), \
                             "quantity": quantity[i] } for i in range(len(discount)) ]
             #for page in pages_dict:
@@ -61,27 +65,32 @@ page_dict_list = []
     #     page_dict_list = page_dict_list + item
     
 sql='SELECT zip FROM city_zip_data'
-zip_code=connect_db(sql)
+zip_code=connectDB.connect_db(sql)
 zip_codes=[]
 
 for item in zip_code:
     zip_codes.append(re.sub("\'|\,|\(|\)", "", str(item)))
 
 for every in zip_codes:
-    page_dict_list.append(calculate_dict('html_samsung/*.html'))
+    page_dict_list.append(calculate_dict('target/*.html'))
 
-rds_connection_string = "bedlgjelgbrcba:62edbf5e39edf1ea129a38a5766d7354579374a6db487103a421c76fd47d78c3@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dd4i4baf4sjibo"
-engine = create_engine(f'postgresql://{rds_connection_string}') 
+
+for i in page_dict_list:
+    print("iiiii",  i)   
+   
+
+rds_connection_string = "postgres://xsexllfzorcrvb:c19fdb9e7f8b1d787fd0aa79c53c274bd6b25e57c89b6d0981f8b6ad293a5c80@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dbvr413t8b1dv6"
+                      # "postgres://wyscmkyadpxnpq:4035077d37da67ed9b5c3f7d5a1560ed3adfda8c7e7a875df5139b38e8e5561e@ec2-54-83-201-84.compute-1.amazonaws.com:5432/d77gdrm2h45ur9"
+engine = create_engine(f'postgresql://{rds_connection_string}')
    
 for i in page_dict_list:
-    print("iiiii",  i)
-
-   
+    print("iiiii",  i)   
     pages_data_df = pd.DataFrame.from_dict(i)
 #pages_data_df=pages_data_df.dropna()
     pages_data_df.head(10)
     #df1.to_sql('users', con=engine, if_exists='append')
-    pages_data_df.to_sql('market_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
+    pages_data_df.to_sql('target_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
     #pd.read_sql_query('select * from market_scraped_data', con=engine).head()
-    # print(page_dict_list)    
+    # print(page_dict_list)  
+    #   
 

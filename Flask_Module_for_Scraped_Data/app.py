@@ -17,7 +17,6 @@ import numpy as np
 from sqlalchemy import create_engine, inspect, Column, Integer, String, Float
 import connectDB
 
-
 from flask import request, redirect, Response, url_for, make_response
 import random
 
@@ -72,26 +71,43 @@ def table():
 
     return render_template("table_display.html")
 
-    #########################################################################################################
+##############################################################################################################
 
 @app.route("/stockstatus")
 def stockstatus():
-    """Return the homepage with plot of availability for the sku selected"""
-    sql="SELECT quantity, COUNT(*) FROM market_scraped_data where sku=' 201326711 ' GROUP BY quantity"
-    entire_table=connectDB.connect_db(sql)
-    df = pd.DataFrame(entire_table, columns =['quantity', 'count']) 
+    """Return the page with plot of availability for the sku selected"""
+
+    #sku = (' sku ',)
+    sku=' 201326711 '
+
+    rds_connection_string = "bedlgjelgbrcba:62edbf5e39edf1ea129a38a5766d7354579374a6db487103a421c76fd47d78c3@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dd4i4baf4sjibo"
+    engine = create_engine(f'postgresql://{rds_connection_string}')
+
+    connection = engine.raw_connection()
+    cursor = connection.cursor()
+    #sql="SELECT zipcode, discount, COUNT(*) FROM market_scraped_data where sku=' "+str(user_sku)+" ' GROUP BY discount"
+    entire_table=engine.execute('SELECT quantity, priceoff FROM market_scraped_data WHERE sku= %s', sku)
+    cursor.close()
+
+    df = pd.DataFrame(entire_table, columns =['quantity', 'priceoff']) 
     # data_list = df.values.tolist()
+    x=df['quantity'] # assign x as the dataframe column 'x'
+    y=df['priceoff'].tolist()
+    #js_var=str(data_dict).replace("(", "=")
 
     data = [
-        go.Bar(
-            x=df['quantity'], # assign x as the dataframe column 'x'
-            y=df['count']
+        go.bar(
+            x=x, # assign x as the dataframe column 'x'
+            y=y
         )
     ]
        
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
 
-    return render_template("homepage.html", plot=graphJSON)
+    return render_template("lineplot.html", plot=graphJSON)
+
+##############################################################################################################
+
 
 @app.route("/maps")
 def render_dict_maps():
@@ -99,7 +115,7 @@ def render_dict_maps():
 
 
 
-@app.route("/plots/<sku>")
+@app.route("/plouuts/<sku>")
 def plots(sku):
     """Return entire database entries fot a particular SKU""" 
     sku = (' sku ',)

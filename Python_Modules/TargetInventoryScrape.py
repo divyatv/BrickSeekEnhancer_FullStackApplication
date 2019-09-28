@@ -29,7 +29,7 @@ def scrape_endpoint(sku):
     ### Make http calls using curl command and fetch the data required.
     for item in zip_codes:
         command= 'curl --data ' + '"sku=' + str(sku) + '&zip=' + item + \
-                  '" https://brickseek.com/walmart-inventory-checker? -o html'+ item +'.html'
+                  '" https://brickseek.com/target-inventory-checker? -o html'+ item +'.html'
         os.system(command) 
     return(zip_codes)    
     
@@ -54,8 +54,8 @@ def scrape_html_pages(zip_code):
         #print("address", address_ex)
         quantity=[ indi.text for indi in all_data.find_all('span', class_='availability-status-indicator__text') ]
         #print("quantity", quantity)
-        pages_dict = [ {"sku": sku, "zip-code:":  address_ex[i].split()[-1], "price-off": discount[i], \
-                        "store-address" : ' '.join(address_ex[i].split()[:-1]), \
+        pages_dict = [ {"sku": sku, "zipcode:":  address_ex[i].split()[-1], "priceoff": discount[i], \
+                        "storeaddress" : ' '.join(address_ex[i].split()[:-1]), \
                         "quantity": quantity[i] } for i in range(len(discount)) ]
         #for page in pages_dict:
         #    print(page) 
@@ -79,7 +79,7 @@ def write_to_db(zip_codes):
         print("iiiii",  i)
 
     # drop city_zip_data if it exist already
-    rds_connection_string = "bedlgjelgbrcba:62edbf5e39edf1ea129a38a5766d7354579374a6db487103a421c76fd47d78c3@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dd4i4baf4sjibo"
+    rds_connection_string = "postgres://wyscmkyadpxnpq:4035077d37da67ed9b5c3f7d5a1560ed3adfda8c7e7a875df5139b38e8e5561e@ec2-54-83-201-84.compute-1.amazonaws.com:5432/d77gdrm2h45ur9"
     engine = create_engine(f'postgresql://{rds_connection_string}')
     # engine.table_names()
     # market_scraped_data = 'market_scraped_data'
@@ -94,13 +94,13 @@ def write_to_db(zip_codes):
     pages_data_df=pages_data_df.dropna()
     pages_data_df.head(10)
     #df1.to_sql('users', con=engine, if_exists='append')
-    pages_data_df.to_sql('market_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
+    pages_data_df.to_sql('target_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
     #pd.read_sql_query('select * from market_scraped_data', con=engine).head()
     # print(page_dict_list)    
 
 
 if __name__ == '__main__' :
-    sku = 201326711
+    sku = '080-02-1714'
     
     zip_codes=scrape_endpoint(sku)
     #print(zip_codes)
@@ -110,10 +110,10 @@ if __name__ == '__main__' :
     #     s.remove('html'+ item +'.html')
 
 ##### Remove the html files that were generated.
-    for item in zip_codes:
-        file = 'html' + item + '.html'
-        if os.path.exists(file):
-            os.remove(file)
+    # for item in zip_codes:
+    #     file = 'html' + item + '.html'
+    #     if os.path.exists(file):
+    #         os.remove(file)
 
            
 
