@@ -10,12 +10,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
     <script src="{{ url_for('static', filename='Chart.min.js') }}"></script>
   
    
-    <script>
+    <!-- <script>
       var data= '{{data}}';
-      </script>
+      </script> -->
       
        <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
 </head>
@@ -49,7 +51,7 @@
 <main>
 <div class="container" style="margin-top:100px">
    <div class="row">
-       <div class="col-sm-7 mb-3 mb-md-0">
+       <div class="col-sm-4 mb-3 mb-md-0">
          <div class="card">
            <div class="content-box">
            <div class="card-body">
@@ -59,36 +61,45 @@
                <div class="form-group">
                  <ul class="list-group" id="filters">
                    <li class="filter list-group-item">
-                     <label for="date">Enter your SKU</label>
-                     <input class="form-control" id="sku" type="text" placeholder="600104275">
+                     <label for="date">Enter your SKU for Walmart</label>
+                     <input class="form-control" id="sku" type="text" placeholder="329264833">
                    </li>
                    <li class="filter list-group-item">
-                      <label for="city">Enter Store</label>
-                      <input class="form-control" id="Store" type="text" placeholder="Walmart">
+                      <label for="date">Enter your UPC for Target</label>
+                      <input class="form-control" id="sku" type="text" placeholder="080-02-1714">
                     </li>
+                   
                  </ul>
                </div>
                <!-- <button id="filter-btn" type="button" href="map_display.html" class="btn btn-default">Show Stock Status</button> -->
-               <button id="filter-btn-stock" type="button" class="btn btn-primary">Display Stock Status</button>
-               <a href="test_chart.html" class="btn btn-primary">Scrape Data</a>
+               <button id="filter-btn-stock" type="button" class="btn btn-primary">Plot Availability</button>
+               <a  class="btn btn-primary">Scrape Data</a>
              </form>
            </div>
            </div>
          </div>
        </div>
-       <div class="col-sm-5 mb-3 mb-md-0">
-         
+       <div class="col-sm-4 mb-3 mb-md-0">       
                               
           
-              <div class="chart" id="linegraph">
+              <div class="chart" id="bargraph">
                   <script>
-                      var graphs = {{plot | safe}};
-                      Plotly.plot('linegraph',graphs,{});
+                      var graphs = {{plot_wal | safe}};
+                      Plotly.plot('bargraph',graphs,{});
                   </script>
-           
+        </div>
+     
+      <div class="col-sm-4 mb-3 mb-md-0">
+              
+   <div class="chart_target" id="chart_target">
+    <script>
+        var graphs = {{plot_tar | safe}};
+        Plotly.plot('chart_target',graphs,{});
+    </script>    
+      </div>     
                
 
-  </div>
+  
    </div>
 </div>
  <!-- Footer section -->
@@ -107,6 +118,7 @@
  <!-- End of Footer -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
  
 </body>
 </html>

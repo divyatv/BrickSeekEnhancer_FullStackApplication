@@ -79,22 +79,22 @@ def write_to_db(zip_codes):
         print("iiiii",  i)
 
     # drop city_zip_data if it exist already
-    rds_connection_string = "postgres://wyscmkyadpxnpq:4035077d37da67ed9b5c3f7d5a1560ed3adfda8c7e7a875df5139b38e8e5561e@ec2-54-83-201-84.compute-1.amazonaws.com:5432/d77gdrm2h45ur9"
+    rds_connection_string = "xsexllfzorcrvb:c19fdb9e7f8b1d787fd0aa79c53c274bd6b25e57c89b6d0981f8b6ad293a5c80@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dbvr413t8b1dv6"
     engine = create_engine(f'postgresql://{rds_connection_string}')
     # engine.table_names()
-    # market_scraped_data = 'market_scraped_data'
-    # connection = engine.raw_connection()
-    # cursor = connection.cursor()
-    # command = "DROP TABLE IF EXISTS {};".format(market_scraped_data)
-    # cursor.execute(command)
-    # connection.commit()
-    # cursor.close()
+    market_scraped_data = 'target_scraped_data'
+    connection = engine.raw_connection()
+    cursor = connection.cursor()
+    command = "DROP TABLE IF EXISTS {};".format(market_scraped_data)
+    cursor.execute(command)
+    connection.commit()
+    cursor.close()
        
     pages_data_df = pd.DataFrame.from_dict(page_dict_list)
     pages_data_df=pages_data_df.dropna()
-    pages_data_df.head(10)
+    #pages_data_df.head(10)
     #df1.to_sql('users', con=engine, if_exists='append')
-    pages_data_df.to_sql('target_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
+    pages_data_df.to_sql('target_scraped_data', con=engine, index=False,dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
     #pd.read_sql_query('select * from market_scraped_data', con=engine).head()
     # print(page_dict_list)    
 

@@ -12,7 +12,7 @@ def connect_db(sql):
 
 #### Function to connect to target inventory and fetch data.
 def connect_target_db(sql):
-    rds_connection_string = "postgres://wyscmkyadpxnpq:4035077d37da67ed9b5c3f7d5a1560ed3adfda8c7e7a875df5139b38e8e5561e@ec2-54-83-201-84.compute-1.amazonaws.com:5432/d77gdrm2h45ur9"
+    rds_connection_string = "xsexllfzorcrvb:c19fdb9e7f8b1d787fd0aa79c53c274bd6b25e57c89b6d0981f8b6ad293a5c80@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dbvr413t8b1dv6"
     engine = create_engine(f'postgresql://{rds_connection_string}')
     return engine.execute(sql).fetchall()
       
