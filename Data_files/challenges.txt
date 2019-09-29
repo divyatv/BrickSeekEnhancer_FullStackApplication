@@ -20,3 +20,10 @@ ec2-184-73-232-93.compute-1.amazonaws.com:5432/dbvr413t8b1dv6
 Keep some skus for demo
 
 600104275
+
+329264833/080-02-1714
+
+329264833/190198429612
+
+instock
+Out of Stock

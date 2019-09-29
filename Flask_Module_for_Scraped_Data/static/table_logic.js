@@ -72,9 +72,9 @@ tableData.forEach(function(name){
         
     //if statement to compare the dates and city and shape
     if((inputValue_sku == "" || inputValue_sku===name['sku']) && 
-        (inputValue_discount == "" || inputValue_discount === name['price-off']) && 
+        (inputValue_discount == "" || inputValue_discount === name['priceoff']) && 
         (inputValue_stock == "" || inputValue_stock === name['quantity']) &&
-        (inputValue_zip== "") || inputValue_zip ===name['zip-code:'])
+        (inputValue_zip== "") || inputValue_zip ===name['zipcode'])
 {
     //console.log(column)
      var td_tag=document.createElement('td');
