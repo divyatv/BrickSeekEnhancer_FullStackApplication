@@ -1,15 +1,15 @@
 # Project2_Brick_Seek_Enhancer<br>
 
-BrickSeek is a web-based software that allows you to search for sale and clearance deals near your ZIP Code. BrickSeek focuses on several major retailers including Walmart, Target, Lowe’s, Office Depot, Macy’s, Home Depot, CVS, Staples and BJ’s.
+BrickSeek is a web-based software that allows you to search for sale and clearance deals near your ZIP Code. BrickSeek focuses on several major retailers including Walmart, Target, Lowe’s, Office Depot, Macy’s, Home Depot, CVS, Staples and BJ’s.<br>
 
-Why OneView?
-BrickSeek in its current state has a paid membership + lacks functionality and is limited to localized area (i.e. cannot analyze nationwide supply and pricing trends)
+Why OneView?<br>
+BrickSeek in its current state has a paid membership + lacks functionality and is limited to localized area (i.e. cannot analyze nationwide supply and pricing trends)<br>
 
-Who is OneView for?
-For the deal hunter, holiday shopper and online reseller.
+Who is OneView for?<br>
+For the deal hunter, holiday shopper and online reseller.<br>
 
-What do you get with OneView?
-OneView enables the user to see a nationwide view of inventory and pricing information from big box retailers to spot trends + analyze products + make informed purchases + strategic pricing decisions
+What do you get with OneView?<br>
+OneView enables the user to see a nationwide view of inventory and pricing information from big box retailers to spot trends + analyze products + make informed purchases + strategic pricing decisions<br>
 
 
 Steps to run:<br>
