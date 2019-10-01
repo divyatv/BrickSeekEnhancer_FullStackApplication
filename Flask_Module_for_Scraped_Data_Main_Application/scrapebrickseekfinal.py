@@ -76,10 +76,25 @@ def scrape_fromhtml():
                 seeked_items.append(e)
     # Convert list into Dataframe
     seeked_df = pd.DataFrame(seeked_items)
+    seeked_df = seeked_df.drop_duplicates()
+    seeked_df.to_csv("Resources/walmart_output.csv",index=False)
     return seeked_df
 
 def scrape_all():
 
+    # Get the records from the scrape function for it to be called by the flask code
+
+    ######### Uncomment the below two lines of code for validation (Runs for 8 Minutes)######## Last two lines for demo alone#######
+    # import_dataframe = scrape_fromhtml()
+
+    # return import_dataframe.to_dict('records')
+
+    ########## Code for demo just to read the file from the scraped CSV #############
+
     scrapedcsv_df = pd.read_csv("Resources/walmart_output.csv")
 
     return scrapedcsv_df.to_dict('records')
+
+### Instantiating Empty Constructer
+if __name__ == "__main__":
+    pass
