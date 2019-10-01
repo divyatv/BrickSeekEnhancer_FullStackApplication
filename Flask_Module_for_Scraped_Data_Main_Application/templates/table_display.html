@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+    <title>Table Display</title>
+     <!-- Declare style sheet and js-->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <title>Home page</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+     <!-- <script src="https://www.jsdelivr.com/package/npm/chart.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script>
+    <script src="../static/dict_values.js"></script>
+      <script>
+        var dict_values= '{{dict_values}}';
+      </script>
+      
+    </head>
+
+<body>
+<header>
+ <div class="bs-example">
+      <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark">
+          
+		  <nav class="btn btn-primary">
+  <a class="navbar-brand" href="http://localhost:5000/"">
+    <!-- <img src="shoppingowl.jpg" width="130" height="120" alt="">
+  </a> -->
+  <h1>OneView</h1>
+</nav>
+
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+             <div class="navbar-nav ml-auto">
+                 <!-- <a href="http://localhost:5000/" class="nav-item nav-link active btn btn-primary">Go to the Home Page</a> -->
+                 <a href="http://localhost:5000/scrape" class="nav-item nav-link active btn btn-primary ">Display Map</a>
+                 <a href="http://localhost:5000/table" class="nav-item nav-link active btn btn-primary">Display Table</a>
+                 <a href="http://localhost:5000/stockstatus" class="nav-item nav-link active btn btn-primary">Plots</a>
+             </div>
+             
+         </div>    
+      </nav>
+  </div>
+</header>  
+    <!-- Design containers and the rows and columns-->
+<main>  
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 style="color:blue; font-size:16px;">Product details from Database</h1>
+            <br><br />
+			   <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-2">
+          <aside class="filters">
+            <div class="panel panel-default">
+              <div class="panel-heading">Specify one or more criteria</div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <ul class="list-group" id="filters">
+                      <li class="filter list-group-item">
+                        <label for="date">Enter SKU</label>
+                        <input class="form-control" id="sku" type="text" placeholder="625412161">
+                      </li>
+                      <li class="filter list-group-item">
+                        <label for="date">Enter ZIP code</label>
+                        <input class="form-control" id="zip" type="text" placeholder="27713">
+                      </li>
+                      <li class="filter list-group-item">
+                        <label for="date">Enter quantity status</label>
+                        <input class="form-control" id="quantity" type="text" placeholder="Out of Stock">
+                      </li>
+					  
+					    <li class="filter list-group-item">
+                        <label for="date">Enter discount</label>
+                        <input class="form-control" id="discount" type="text" placeholder="53% off">
+                      </li>
+					  
+                    </ul>
+                  </div>
+                  <button id="filter-btn" type="button" class="btn btn-primary">Filter Table</button>
+                </form>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="col-md-10">
+           <div id="table-area" class="">
+            <table id="ufo-table" class="table table-striped">
+              <thead>
+			
+                <tr>
+                  <!-- <th class="table-head">Sl.No.</th>  -->
+                  <th class="table-head">PriceOff</th>
+                  <th class="table-head">Quantity</th>
+                  <th class="table-head">SKU</th>
+                  <th class="table-head">StoreAddress</th>
+                  <th class="table-head">ZipCode</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+               
+              </tbody>
+            </table>
+          
+          </div>
+    
+        </div>
+      </div>
+  <!-- Footer section -->
+</main>
+<footer class="page-footer   special-color-dark pt-4">
+    <div class="container">      
+            <div style="background-color: #313331; border-top: 8px solid #22a3a3; color: white">
+    <!-- Copyright -->
+    <div class="font-small white footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="https://www.bootcampspot.com/login"> OneView UNC Bootcamp.com</a>
+    </div>
+</div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+   <script src="../static/dict_values.js"></script>
+  <!-- <script src="../static/table_logic.js"></script> -->
+   <!-- <script src="{{ url_for('static', filename='data.js')}}"></script> -->
+  <script src="{{ url_for('static', filename='table_logic.js') }}"></script>
+ 
+  
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+   <title>OneView</title>
+    <!-- Declare style sheet and js-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='Chart.min.js') }}"></script>
+  
+   
+    <script>
+      var data= '{{data}}';
+      </script>
+      
+       <!-- <script src="{{ url_for('static', filename='stylesheet1.css') }}"></script> -->
+</head>
+<body>
+    <header>
+
+        <!-- navbar-->
+        <div class="bs-example">
+            <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark">
+                
+            <nav class="btn btn-primary">
+        <a class="navbar-brand" href="http://localhost:5000/">
+          <!-- <img src="shoppingowl.jpg" width="130" height="120" alt="">
+        </a> -->
+        <h1>OneView</h1>
+      </nav>
+      
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                   <div class="navbar-nav ml-auto">
+                       <!-- <a href="http://localhost:5000/" class="nav-item nav-link active btn btn-primary">Go to the Home Page</a> -->
+                       <a href="http://localhost:5000/scrape" class="nav-item nav-link active btn btn-primary ">Display Map</a>
+                       <a href="http://localhost:5000/table" class="nav-item nav-link active btn btn-primary">Display Table</a>
+                       <a href="http://localhost:5000/stockstatus" class="nav-item nav-link active btn btn-primary">Plots</a>
+                   </div>
+                   
+               </div>    
+            </nav>
+        </div>
+      </header>  
+   <!-- Design containers and the rows and columns-->
+<main>
+<div class="container" style="margin-top:100px">
+   <div class="row">
+       <div class="col-sm-7 mb-3 mb-md-0">
+         <div class="card">
+           <div class="content-box">
+           <div class="card-body">
+             <h5 class="card-title">Choose your Product</h5>
+             <hr>
+             <form>
+               <div class="form-group">
+                 <ul class="list-group" id="filters">
+                   <li class="filter list-group-item">
+                     <label for="date">Enter your SKU</label>
+                     <input class="form-control" id="sku" type="text" placeholder="600104275">
+                   </li>
+                   <li class="filter list-group-item">
+                      <label for="city">Enter Store</label>
+                      <input class="form-control" id="Store" type="text" placeholder="Walmart">
+                    </li>
+                 </ul>
+               </div>
+               <!-- <button id="filter-btn" type="button" href="map_display.html" class="btn btn-default">Show Stock Status</button> -->
+               <button id="filter-btn-stock" type="button" class="btn btn-primary">Display Stock Status</button>
+               <a  class="btn btn-primary">Scrape Data</a>
+             </form>
+           </div>
+           </div>
+         </div>
+       </div>
+       <div class="col-sm-5 mb-3 mb-md-0">
+               <canvas id="count-doughnut" width="400" height="400"></canvas>
+   </div>
+</div>
+ <!-- Footer section -->
+</main>
+<footer class="page-footer   special-color-dark pt-4">
+   <div class="container">
+<div style="background-color: #313331; border-top: 8px solid #22a3a3; color: white">
+
+<!-- Copyright -->
+   <div class="font-small white footer-copyright text-center py-3">© 2017 Copyright:
+     <a href="https://www.bootcampspot.com/login"> OneView:UNC Bootcamp.com</a>
+   </div>
+</div>
+   <!-- Copyright -->
+ </footer>
+ <!-- End of Footer -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ <!-- script src="doughnut-R1.js"></script -->
+ <script src="{{ url_for('static', filename='homepage.js')}}"></script>
+ 
+</body>
+</html>

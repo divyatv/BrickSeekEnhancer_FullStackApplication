@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Maps</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Leaflet JS & CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+
+    <!-- d3 JS -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- Marker Cluster JS & CSS -->
+    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
+    <!-- Our CSS -->
+    <!-- <script src="{{ url_for('static', filename='css/style.css') }}"></script> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+  </head>
+  <header>
+    <div class="bs-example">
+         <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark">
+             
+         <nav class="btn btn-primary">
+     <a class="navbar-brand" href="http://localhost:5000/"">
+       <!-- <img src="shoppingowl.jpg" width="130" height="120" alt="">
+     </a> -->
+     <h1>OneView</h1>
+   </nav>
+   
+             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <!-- <a href="http://localhost:5000/" class="nav-item nav-link active btn btn-primary">Go to the Home Page</a> -->
+                    <a href="http://localhost:5000/scrape" class="nav-item nav-link active btn btn-primary ">Display Map</a>
+                    <a href="http://localhost:5000/table" class="nav-item nav-link active btn btn-primary">Display Table</a>
+                    <a href="http://localhost:5000/stockstatus" class="nav-item nav-link active btn btn-primary">Plots</a>
+                </div>
+                
+            </div>    
+         </nav>
+     </div>
+   </header> 
+  <body>
+
+    <div id="map"></div>
+    <script>
+      var graphData = JSON.parse('{{ jsonvalue|safe }}');
+    </script>
+    <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+    
+
+  </body>
+</html>
