@@ -1,2 +1,2 @@
 # Enter your API key
-gkey = "AIzaSyDeMcxfAnuJB0TRF02BFDHVL_Wa5mfGMpc"
+gkey = "MASKING THE API KEY PLEASE ASK US IF YOU NEED IT TO RUN CODE"
