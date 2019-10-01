@@ -94,9 +94,9 @@ def write_to_db(zip_codes):
     pages_data_df.head(10)
     #df1.to_sql('users', con=engine, if_exists='append')
     pages_data_df.to_sql('market_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
-    #pd.read_sql_query('select * from market_scraped_data', con=engine).head()
-    # print(page_dict_list)    
+ 
 
+#### Scraping the data for one sku for now,
 
 if __name__ == '__main__' :
     sku = 329264833
@@ -109,10 +109,10 @@ if __name__ == '__main__' :
     #     s.remove('html'+ item +'.html')
 
 ##### Remove the html files that were generated. Not needed now but will use it later to clean.
-    # for item in zip_codes:
-    #     file = 'html' + item + '.html'
-    #     if os.path.exists(file):
-    #         os.remove(file)
+    for item in zip_codes:
+        file = 'html' + item + '.html'
+        if os.path.exists(file):
+            os.remove(file)
 
            
 

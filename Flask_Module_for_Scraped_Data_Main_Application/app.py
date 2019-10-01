@@ -122,37 +122,11 @@ def stockstatus():
 
 
 ############################################################################################################
-# @app.route("/plots")
-# def plots():
-#     """Plot availablity of the product in Walart vs Target""" 
-#     ##### Keeping this piece of code for future enhancements#####
-#     # sku = (' sku ',)
-#     # rds_connection_string = "end string here"
-#     # engine = create_engine(f'postgresql://{rds_connection_string}')
-#     # #engine.table_names()
-#     # connection = engine.raw_connection()
-#     # cursor = connection.cursor()
-#     # entire_table=engine.execute('SELECT priceoff, zipcode, quantity FROM target_scraped_data WHERE upc= %s', sku)
-#     # cursor.close()
-#     mysqlQuery="SELECT quantity, COUNT(*) FROM target_scraped_data where upc='190198429612' GROUP BY quantity"
-#     entire_table = connectDB.connect_target_db(mysqlQuery)
 
-#     df = pd.DataFrame(entire_table, columns =['quantity', 'count'])
+###############################################################################################################
 
-#     #zipc = df['zipcode'].tolist()
-#     quantity = df['quantity'].tolist()
-#     valuesc=df['count'].tolist()
-#     labels=[]
-#     values=[]
-#     legend = 'Location'
-#     for item in quantity:
-#         labels.append(str(item))
-#     for item in valuesc:
-#         values.append(str(item).replace("% off", ""))
-      
-#     return render_template('Chart.html', values=values, labels=labels, legend=legend)
-############################################################################################## 
-
-### Running main function
+### Running main function ######################
 if __name__ == "__main__":
     app.run(debug=True)
+
+#################################################
