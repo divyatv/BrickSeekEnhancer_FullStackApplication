@@ -44,7 +44,7 @@ def home():
 def count_result(user_sku):
    import sys
    print(user_sku,file=sys.stderr)
-   mysqlQuery="SELECT quantity, COUNT(*) FROM market_scraped_data where sku='"+str(user_sku)+"' GROUP BY quantity"
+   mysqlQuery="SELECT quantity, COUNT(*) FROM market_scraped_data where sku=' "+str(user_sku)+" ' GROUP BY quantity"
    data = connectDB.connect_db(mysqlQuery)
    myresult = []
    for result in data:
