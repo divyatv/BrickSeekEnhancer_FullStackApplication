@@ -28,8 +28,8 @@ var myMap = L.map("map", {
   
        // Add a new marker to the cluster group and bind a pop-up
        markers.addLayer(L.marker([latitude, longitude])
-         .bindPopup("Availability:" + graphData[i].quantity + "<br> Discount: " + graphData[i].priceoff)).on('mouseover',function(ev) {
-          ev.target.openPopup(graphData[i].priceoff);
+         .bindPopup("Store Name: " + graphData[i].Store_Name + "<br> Availability: " + graphData[i].Item_Availability + "<br> Discount: " + graphData[i].Item_Discount + " | Price: " + graphData[i].Item_Price + "<br> <a href="+ "'" + graphData[i].Google_Maps + "'" + "target='_blank'>" + "Directions"+"</a>")).on('mouseover',function(ev) {
+          ev.target.openPopup(graphData[i].Item_Quantity);
       //  markers.on('mouseover',function(ev) {
       //     ev.target.openPopup(graphData[i].priceoff);
        });
