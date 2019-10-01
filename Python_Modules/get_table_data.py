@@ -6,11 +6,11 @@ from sqlalchemy import create_engine, inspect
 import connectDB
 import pandas as pd
  
-
+###### Call this for backing up data in case Database goes down ################################
 sql='SELECT * FROM market_scraped_data'
 entire_table=connectDB.connect_db(sql)
 
-df = pd.DataFrame(entire_table, columns =['priceoff', 'quantity', 'DCPI', 'storeaddress', 'zipcode']) 
+df = pd.DataFrame(entire_table, columns =['priceoff', 'quantity', 'upc', 'storeaddress', 'zipcode']) 
 data_dict = df.T.to_dict().values()
 
 df.to_csv(r'database_dmp.csv')
