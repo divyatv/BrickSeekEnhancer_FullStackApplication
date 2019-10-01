@@ -53,13 +53,11 @@ def calculate_dict():
         pages_dict = [ {"DCPI": sku, "zipcode":  address_ex[i].split()[-1], "priceoff": discount[i], \
                             "storeaddress" : ' '.join(address_ex[i].split()[:-1]), \
                             "quantity": quantity[i] } for i in range(len(discount)) ]
-            #for page in pages_dict:
-            #    print(page) 
+           
         return pages_dict
 
 page_dict_list = []
-    # for item in  [scrape_html_pages(item) for  item in zip_codes]:
-    #     page_dict_list = page_dict_list + item
+
     
 
 
@@ -68,21 +66,15 @@ for filename in os.listdir('target'):
 
 
 for i in page_dict_list:
-    print("iiiii",  i)   
+    print("data to db",  i)   
    
 
-rds_connection_string = "xsexllfzorcrvb:HIDE PASSWORD@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dbvr413t8b1dv6"
-                      # "postgres://wyscmkyadpxnpq:4035077d37da67ed9b5c3f7d5a1560ed3adfda8c7e7a875df5139b38e8e5561e@ec2-54-83-201-84.compute-1.amazonaws.com:5432/d77gdrm2h45ur9"
+rds_connection_string = "xsexllfzorcrvb:HIDE PASSWORD@ec2-184-73-232-93.compute-1.amazonaws.com:5432/dbvr413t8b1dv6"                      
 engine = create_engine(f'postgresql://{rds_connection_string}')
    
 for i in page_dict_list:
-    print("iiiii",  i)   
+    print("data to db",  i)   
     pages_data_df = pd.DataFrame.from_dict(i)
-#pages_data_df=pages_data_df.dropna()
-    #pages_data_df.head(10)
-    #df1.to_sql('users', con=engine, if_exists='append')
     pages_data_df.to_sql('target_scraped_data', con=engine, index=False, if_exists='append',dtype={col_name: sqlalchemy.types.VARCHAR for col_name in pages_data_df})
-    #pd.read_sql_query('select * from market_scraped_data', con=engine).head()
-    # print(page_dict_list)  
-    #   
+
 
